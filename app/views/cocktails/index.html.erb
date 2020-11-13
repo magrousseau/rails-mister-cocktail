@@ -1,0 +1,20 @@
+<h1 class="text-center mt-4">All your cocktails</h1>
+
+<br>
+
+
+<div class="cards">
+  <% @cocktails.each do |cocktail| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.image_url%>)">
+      <%= cocktail.name %>
+    </div>
+    <div>
+      <%= link_to "composition", cocktail_path(cocktail), class: "btn btn-ghost"  %>
+      <%= link_to "delete", cocktail_path(cocktail), method: :delete, data:{confirm: "Are you sure?"}, class: "btn btn-ghost" %>
+    </div>
+  <% end %>
+</div>
+<br>
+
+<%= link_to "add a cocktail", new_cocktail_path, class: "btn btn-ghost" %>
+

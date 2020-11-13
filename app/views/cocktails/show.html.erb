@@ -1,0 +1,30 @@
+<div >
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @cocktail.image_url%>)">
+    <%= @cocktail.name %>
+  </div>
+</div>
+
+
+<h2 class="text-center m-4 background-grey">Ingredients</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-4 d-bloc">
+      <div>
+      <% @cocktail.doses.each do |dose|  %>
+        <%= dose.ingredient.name %>
+        <%= dose.description %>
+        <%= link_to dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' }, class: 'card-remove-link' do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+      <div class="col-8">
+        <%= render "doses/new", cocktail: @cocktail, dose: @dose %>
+      </div>
+  </div>
+</div>
+
+
+<%= link_to "back to cocktails", cocktails_path, class: "btn btn-ghost"  %>
