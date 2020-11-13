@@ -1,28 +1,28 @@
-<!-- <h1 class="text-center mt-4">All your cocktails</h1>
-
-<br> -->
-
+<div class="background-grey">
 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1509669803555-fd5edd8d5a41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'); height: 200px;">
-  All your cocktails
+  <span class="title-big">All your cocktails</span>
 </div>
 
-<div class="container my-5">
+<div class="container my-3">
   <div class="cards row">
+    <div class="col-md-12 col-lg-6 my-2 mx-auto">
     <% @cocktails.each do |cocktail| %>
       <% if cocktail.photo.attached? == true %>
-      <div class="col-md-8 col-lg-4 m-2">
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key, height: 100, width: 150, crop: :fill %>')">
-          <%= cocktail.name %>
-        </div>
-      </div>
-      <div class="col-md-4 col-lg-2">
-        <%= link_to "composition", cocktail_path(cocktail), class: "btn btn-ghost m-2"  %>
-        <%= link_to "delete", cocktail_path(cocktail), method: :delete, data:{confirm: "Are you sure?"}, class: "btn btn-ghost" %>
-      </div>
+        <div class="card-index background-white">
+          <div class="card-category " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key, height: 100, width: 150, crop: :fill %>')">
+            <span class="title-spaced"><%= cocktail.name %></span>
+          </div>
+          <div class="pt-2">
+            <%= link_to "composition", cocktail_path(cocktail), class: "btn btn-ghost m-2"  %>
+            <%= link_to "delete", cocktail_path(cocktail), method: :delete, data:{confirm: "Are you sure?"}, class: "btn btn-ghost" %>
+          </div>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
   </div>
   </div>
+</div>
+</div>
 
 <%#= link_to "add a cocktail", new_cocktail_path, class: "btn btn-ghost" %>
 
