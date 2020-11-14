@@ -1,17 +1,21 @@
 <div class="container">
-  <div >
-    <% if @cocktail.photo.attached? == true %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cocktail.photo.key, height: 400, width: 400, crop: :fill %>')">
-      <span class="text-capitalize title-big"><%= @cocktail.name %></span>
-      </div>
-    <% end %>
-  </div>
 
 
   <div class="container-fluid mt-2 mb-4 pb-3 border-bottom ">
-    <div class="row">
-      <div class="col-7 d-bloc">
-        <h2 class="text-left my-4">Receipe</h2>
+    <div class="row border-bottom mb-4">
+        <div class="col-6">
+          <% if @cocktail.photo.attached? == true %>
+            <div class="image-small" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cocktail.photo.key, height: 400, width: 400, crop: :fill %>')">
+            </div>
+          <% end %>
+        </div>
+        <div class="col-6 justify-content-left">
+          <h1 class="text-capitalize title-spaced mt-5"><%= @cocktail.name %></h1>
+          <p>Design your cocktail</p>
+        </div>
+      </div>
+      <div class="row mt-4">
+      <div class="col-6 d-bloc">
         <% @cocktail.doses.each do |dose|  %>
           <div class="border-bottom d-flex justify-content-between">
             <div>
@@ -26,8 +30,8 @@
           <br>
         <% end %>
       </div>
-        <div class="col-5">
-          <h4 class="text-center m-4">Add an ingredient</h4>
+        <div class="col-5 mb-3">
+          <h4 class="text-center mb-4">Add an ingredient</h4>
           <%= render "doses/new", cocktail: @cocktail, dose: @dose %>
         </div>
     </div>
