@@ -29,7 +29,7 @@
 }
 
 .image-small {
-    height: 150px;
+    height: 200px;
     width: 250px;
     background-size: cover;
     // margin-left: 414px;
@@ -39,6 +39,8 @@
     background-size: cover;
     background-position: center;
     justify-content: center;
+    border: white 3px solid;
+    margin-top: -47px;
 }
 
 
